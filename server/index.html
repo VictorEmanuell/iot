@@ -1,0 +1,17 @@
+<html>
+    <body>
+        <script>
+            var sock = new WebSocket("ws://localhost:3001");
+            sock.onopen = function(event){
+                alert('Socket connected successfully');
+                setTimeout(function(){
+                    sock.send("Connected (web)");
+                }, 1000);
+
+                sock.onmessage = function(event){
+                    console.log(event);
+                }
+            }
+        </script>
+    </body>
+</html>
